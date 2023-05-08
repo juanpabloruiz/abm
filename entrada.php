@@ -23,10 +23,10 @@ $campo = mysqli_fetch_array($consulta);
     </header>
     <main>
         <article>
-            <?php echo $campo['titulo']; ?>
+            <h3><?php echo $campo['titulo']; ?></h3>
             <?php echo $campo['modificado']; ?>
-            <?php echo $campo['foto']; ?>
-            <?php echo $campo['contenido']; ?>
+            <img src="fotos/<?php echo $campo['foto']; ?>" alt="Foto" width="300">
+            <p><?php echo $campo['contenido']; ?></p>
         </article>       
     </main>
     <footer>

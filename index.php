@@ -1,3 +1,4 @@
+<?php include('administracion/conexion.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,17 +10,28 @@
     <nav>
         <a href="">Inicio</a>
         <a href="">Contacto</a>
-        <a href="./panel">Administración</a>
+        <a href="administracion">Administración</a>
     </nav>
     <header>
         <h1>Título</h1>
         <h2>Subtítulo</h2>
     </header>
     <main>
-        Contenido
+        <?php
+        $consulta = mysqli_query($conexion, "SELECT * FROM entradas ORDER BY modificado DESC");
+        while ($campo = mysqli_fetch_array($consulta)) {
+        ?>
+            <a href="entrada.php?direccion=<?php echo $campo['direccion']; ?>">
+                <?php echo $campo['titulo']; ?>
+                <?php echo $campo['foto']; ?>
+            </a>
+            <hr>
+        <?php
+        }
+        ?>
     </main>
     <footer>
-        Píe de página &copy <?php echo date('Y'); ?>
+        Pié de página &copy <?php echo date('Y'); ?>
     </footer>
 </body>
 </html>

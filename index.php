@@ -13,12 +13,14 @@
         <a href="administracion">Administración</a>
     </nav>
     <header>
-        <h1>Título</h1>
-        <h2>Subtítulo</h2>
+        <a href="./">
+            <h1>Título</h1>
+            <h2>Subtítulo</h2>
+        </a>
     </header>
     <main>
         <?php
-        $consulta = mysqli_query($conexion, "SELECT * FROM entradas ORDER BY modificado DESC");
+        $consulta = mysqli_query($conexion, "SELECT * FROM entradas ORDER BY creado DESC");
         while ($campo = mysqli_fetch_array($consulta)) {
         ?>
             <a href="entrada.php?direccion=<?php echo $campo['direccion']; ?>">
